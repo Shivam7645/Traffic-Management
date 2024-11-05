@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traffic Management System</title>
+</head>
+<body>
+    <h1>Real-Time Traffic Management System</h1>
+    <div id="traffic-data"></div>
+    <script>
+        async function fetchTrafficData() {
+            const response = await fetch('/traffic_data');
+            const data = await response.json();
+            document.getElementById('traffic-data').innerHTML = JSON.stringify(data, null, 2);
+        }
+        setInterval(fetchTrafficData, 5000);
+    </script>
+</body>
+</html>
